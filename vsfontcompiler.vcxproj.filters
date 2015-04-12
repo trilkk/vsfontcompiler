@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\ft_face.cpp" />
+    <ClCompile Include="src\ft_glyph.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\gfx\image_png.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\thr\dispatch.cpp">
+      <Filter>thr</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ft_library.cpp" />
+    <ClCompile Include="src\thr\thread_storage.cpp">
+      <Filter>thr</Filter>
+    </ClCompile>
+    <ClCompile Include="src\thr\thr_generic.cpp">
+      <Filter>thr</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glyph_storage.cpp" />
+    <ClCompile Include="src\glyph_range.cpp" />
+    <ClCompile Include="src\sky_line.cpp" />
+    <ClCompile Include="src\sky_line_fitter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ft_face.hpp" />
+    <ClInclude Include="src\ft_glyph.hpp" />
+    <ClInclude Include="src\gfx\image_png.hpp">
+      <Filter>gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\generic.hpp">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\defaults.hpp" />
+    <ClInclude Include="src\thr\dispatch.hpp">
+      <Filter>thr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thr\generic.hpp">
+      <Filter>thr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ft_library.hpp" />
+    <ClInclude Include="src\data\circular_buffer.hpp">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thr\promise.hpp">
+      <Filter>thr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thr\worker_thread.hpp">
+      <Filter>thr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\thr\thread_storage.hpp">
+      <Filter>thr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glyph_storage.hpp" />
+    <ClInclude Include="src\glyph_range.hpp" />
+    <ClInclude Include="src\sky_line.hpp" />
+    <ClInclude Include="src\sky_line_fitter.hpp" />
+    <ClInclude Include="src\sky_line_location.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="gfx">
+      <UniqueIdentifier>{ae01e7b2-d596-4f7a-9763-0a9c4f3a4d6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{94cafc27-ac59-49ea-936d-9b333696d055}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thr">
+      <UniqueIdentifier>{68196517-7d5e-4a11-8dd8-e04f31eaec41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{8c790a8e-e294-40a0-a3fe-8e0fdd095ffb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
