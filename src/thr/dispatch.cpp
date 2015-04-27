@@ -85,7 +85,7 @@ static inline bool is_primary_thread()
  * \param tid Thread ID to represent.
  * \return String representation.
  */
-static inline std::string THRID(boost::thread::id tid)
+static inline std::string get_thread_id(boost::thread::id tid)
 {
   if(is_primary_thread(tid))
   {
@@ -112,9 +112,9 @@ static inline std::string THRID(boost::thread::id tid)
  *
  * \return String representation.
  */
-static inline std::string THRID()
+static inline std::string get_thread_id()
 {
-  return THRID(boost::this_thread::get_id());
+  return get_thread_id(boost::this_thread::get_id());
 }
 
 /** \brief Inner common implementation of dispatch.
@@ -384,7 +384,7 @@ void thr::thr_main(unsigned nthreads)
   if(!is_primary_thread())
   {
     std::ostringstream sstr;
-    sstr << "trying to enter main loop from unprivileged thread";
+    sstr << "trying to enter main loop from unprivileged thread " << get_thread_id();
     BOOST_THROW_EXCEPTION(std::runtime_error(sstr.str()));
   }
 

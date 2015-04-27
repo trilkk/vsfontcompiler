@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 2.6)
-
+cmake_minimum_required(VERSION 2.8)
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release")
 project(vsfontcompiler)
 
 enable_language(C)
@@ -15,6 +15,24 @@ find_png(TRUE STATIC)
 
 output_flags("DEBUG" on)
 
-add_definitions(-DVERSION="r31")
+add_definitions(-DVERSION="r3")
 
-add_subdirectory(src)
+include_directories("${PROJECT_SOURCE_DIR}")
+include_directories("${PROJECT_SOURCE_DIR}/src")
+
+set(GFX_SRC "src/gfx/image_png.cpp" "src/gfx/image_png.hpp")
+
+set(THR_SRC "src/thr/dispatch.cpp" "src/thr/dispatch.hpp" "src/thr/generic.hpp" "src/thr/promise.hpp" "src/thr/thr_generic.cpp" "src/thr/thread_storage.cpp" "src/thr/thread_storage.hpp" "src/thr/worker_thread.hpp")
+
+add_executable(vsfontcompiler ${GFX_SRC} ${THR_SRC} "src/defaults.hpp" "src/ft_face.cpp" "src/ft_face.hpp" "src/ft_glyph.cpp" "src/ft_glyph.hpp" "src/ft_library.cpp" "src/ft_library.hpp" "src/glyph_range.cpp" "src/glyph_range.hpp" "src/glyph_storage.cpp" "src/glyph_storage.hpp" "src/main.cpp" "src/sky_line.cpp" "src/sky_line.hpp" "src/sky_line_fitter.cpp" "src/sky_line_fitter.hpp")
+if(${MSVC})
+  target_link_libraries(vsfontcompiler "WINMM")
+  target_link_libraries(vsfontcompiler debug ${FREETYPE_LIBRARY_DEBUG})
+  target_link_libraries(vsfontcompiler debug ${PNG_LIBRARY_DEBUG})
+else()
+  target_link_libraries(vsfontcompiler ${BOOST_PROGRAM_OPTIONS_LIBRARY})
+  target_link_libraries(vsfontcompiler ${BOOST_SYSTEM_LIBRARY})
+  target_link_libraries(vsfontcompiler ${BOOST_THREAD_LIBRARY})
+endif()
+target_link_libraries(vsfontcompiler general ${FREETYPE_LIBRARY})
+target_link_libraries(vsfontcompiler general ${PNG_LIBRARY})
