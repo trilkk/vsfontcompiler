@@ -5,6 +5,11 @@ project(vsfontcompiler)
 enable_language(C)
 enable_language(CXX)
 
+cmake_policy(SET CMP0011 NEW)
+if(${MSVC})
+  cmake_policy(SET CMP0015 NEW)
+endif()
+
 include("defaults.cmake")
 
 find_boost_program_options(TRUE)

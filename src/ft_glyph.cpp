@@ -386,7 +386,7 @@ void FtGlyph::crunch()
         for(unsigned ii = 0; (ii < bitmap_scope_vert); ++ii)
         {
           uint8_t dfval = get_ftbitmap_dfield_value(&m_bitmap,
-              math::lround(static_cast<float>(-bitmap_left) * step) + ox,
+              math::lround(static_cast<float>(-static_cast<int>(bitmap_left)) * step) + ox,
               math::lround(static_cast<float>(ii - bitmap_up) * step) + oy,
               search, dist_scale);
 
@@ -455,7 +455,7 @@ void FtGlyph::crunch()
         {
           uint8_t dfval = get_ftbitmap_dfield_value(&m_bitmap,
               math::lround(static_cast<float>(ii - bitmap_left) * step) + ox,
-              math::lround(static_cast<float>(-bitmap_up) * step) + oy,
+              math::lround(static_cast<float>(-static_cast<int>(bitmap_up)) * step) + oy,
               search, dist_scale);
 
           if(0 < dfval)
