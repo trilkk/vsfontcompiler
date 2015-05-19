@@ -14,5 +14,4 @@ Win32/
 *.sdf
 *.sln
 *.suo
-*.vcxproj
-*.vcxproj.filters
+*.vcxproj*
