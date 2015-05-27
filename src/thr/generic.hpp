@@ -8,34 +8,31 @@
 
 namespace thr
 {
-  /** Convenience typedef. */
+  /// Convenience typedef.
   typedef boost::function<void()> Task;
 
-  /** Convenience typedef. */
+  /// Convenience typedef.
   typedef boost::shared_ptr<boost::condition_variable> CondSptr;
 
-  /** Convenience typedef. */
+  /// Convenience typedef.
   typedef boost::shared_ptr<boost::thread> ThreadSptr;
 
-  /** \brief Get hardware concurrency.
-   *
-   * Throws an error if the information is not available.
-   */
+  /// Get hardware concurrency.
+  ///
+  /// Throws an error if the information is not available.
   extern unsigned hardware_concurrency();
 
-  /** \brief Get a timestamp in microseconds.
-   *
-   * The zero point of the timestamp is unspecified.
-   *
-   * \return Timestamp in microseconds.
-   */
-  extern uint64_t usec_get_timestamp();
+  /// Get a timestamp in microseconds.
+  ///
+  /// The zero point of the timestamp is unspecified.
+  ///
+  /// \return Timestamp in microseconds.
+  extern uint64_t nsec_get_timestamp();
 
-  /** \brief Sleep an amount of time in microseconds.
-   *
-   * \param op Sleep time in microseconds.
-   */
-  extern void usec_sleep(uint64_t op);
+  /// Sleep an amount of time in microseconds.
+  ///
+  /// \param op Sleep time in microseconds.
+  extern void nsec_sleep(uint64_t op);
 }
 
 #endif
