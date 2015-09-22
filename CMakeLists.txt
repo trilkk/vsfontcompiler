@@ -22,7 +22,6 @@ output_flags("DEBUG" on)
 
 add_definitions(-DVERSION="r3")
 
-include_directories("${PROJECT_SOURCE_DIR}")
 include_directories("${PROJECT_SOURCE_DIR}/src")
 
 set(GFX_SRC "src/gfx/image_png.cpp" "src/gfx/image_png.hpp")
