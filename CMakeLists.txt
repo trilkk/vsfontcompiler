@@ -5,11 +5,6 @@ project(vsfontcompiler)
 enable_language(C)
 enable_language(CXX)
 
-cmake_policy(SET CMP0011 NEW)
-if(${MSVC})
-  cmake_policy(SET CMP0015 NEW)
-endif()
-
 include("defaults.cmake")
 
 find_boost_program_options(TRUE)
@@ -24,11 +19,39 @@ add_definitions(-DVERSION="r3")
 
 include_directories("${PROJECT_SOURCE_DIR}/src")
 
-set(GFX_SRC "src/gfx/image_png.cpp" "src/gfx/image_png.hpp")
+set(GFX_SRC
+  "src/gfx/image_png.cpp"
+  "src/gfx/image_png.hpp")
 
-set(THR_SRC "src/thr/dispatch.cpp" "src/thr/dispatch.hpp" "src/thr/generic.hpp" "src/thr/promise.hpp" "src/thr/thr_generic.cpp" "src/thr/thread_storage.cpp" "src/thr/thread_storage.hpp" "src/thr/worker_thread.hpp")
+set(THR_SRC
+  "src/thr/dispatch.cpp"
+  "src/thr/dispatch.hpp"
+  "src/thr/generic.hpp"
+  "src/thr/promise.hpp"
+  "src/thr/thr_generic.cpp"
+  "src/thr/thread_storage.cpp"
+  "src/thr/thread_storage.hpp"
+  "src/thr/worker_thread.hpp")
 
-add_executable(vsfontcompiler ${GFX_SRC} ${THR_SRC} "src/defaults.hpp" "src/ft_face.cpp" "src/ft_face.hpp" "src/ft_glyph.cpp" "src/ft_glyph.hpp" "src/ft_library.cpp" "src/ft_library.hpp" "src/glyph_range.cpp" "src/glyph_range.hpp" "src/glyph_storage.cpp" "src/glyph_storage.hpp" "src/main.cpp" "src/sky_line.cpp" "src/sky_line.hpp" "src/sky_line_fitter.cpp" "src/sky_line_fitter.hpp")
+add_executable(vsfontcompiler
+  ${GFX_SRC}
+  ${THR_SRC}
+  "src/defaults.hpp"
+  "src/ft_face.cpp"
+  "src/ft_face.hpp"
+  "src/ft_glyph.cpp"
+  "src/ft_glyph.hpp"
+  "src/ft_library.cpp"
+  "src/ft_library.hpp"
+  "src/glyph_range.cpp"
+  "src/glyph_range.hpp"
+  "src/glyph_storage.cpp"
+  "src/glyph_storage.hpp"
+  "src/main.cpp"
+  "src/sky_line.cpp"
+  "src/sky_line.hpp"
+  "src/sky_line_fitter.cpp"
+  "src/sky_line_fitter.hpp")
 if(${MSVC})
   target_link_libraries(vsfontcompiler "WINMM")
   target_link_libraries(vsfontcompiler debug ${FREETYPE_LIBRARY_DEBUG})
