@@ -4,7 +4,7 @@
 
 #include <sstream>
 
-#include "ftmodapi.h"
+#include FT_MODULE_H
 
 FtLibrary FtLibrary::ftlib;
 
