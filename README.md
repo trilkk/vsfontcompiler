@@ -1,4 +1,4 @@
-####vsfontcompiler
+#### vsfontcompiler
 <a href="https://raw.githubusercontent.com/trilkk/vsfontcompiler/master/logo.png"><img src="https://raw.githubusercontent.com/trilkk/vsfontcompiler/master/logo.png" align="right" /></a>
 
 Alpha-test render based font file generator.
